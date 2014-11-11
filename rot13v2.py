@@ -16,9 +16,19 @@ def addtocipherCodes(word):
 def ciphenate(word):
     addtocipherCodes(word)
     for letter in word:
-        cipherWord = cipherCodes[letter]
-        print cipherWord
+        return cipherCodes[letter]
+
+decodedCiphers = dict()
+
+def addtodecodedCiphers:
+    for key in cipherCodes:
+        decodedCiphers[cipherCodes[key]] = key
 
 def unciphenate(cipherWord):
+    addtodecodedCiphers(cipherWord)
     for letter in cipherWord:
-        print cipherCodes[key] #need to create an inverse dictionary & look up matches in that dictionary
+        return decodedCiphers[letter]
+
+def encryptDecrypt(word):
+    print "Encrypted word: " + ciphenate(word)
+    print "Decrypted word: " + unciphenate(ciphenate(word))
