@@ -12,3 +12,8 @@ def addtocipherCodes(word):
             cipherCodes[letter] = chr(ord(letter) - 13)
         else:
             print "Invalid entry. Please do not use spaces or special characters."
+
+def ciphenate(word):
+    addtocipherCodes(word)
+    for letter in word:
+        print cipherCodes[letter]
