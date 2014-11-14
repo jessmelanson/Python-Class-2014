@@ -27,9 +27,8 @@ print "Encrypted word: " + codeWord
 
 decodedCiphers = dict()
 
-def addtodecodedCiphers:
-    for key in Ciphers:
-        decodedCiphers[Ciphers[key]] = key
+for key in Ciphers:
+    decodedCiphers[Ciphers[key]] = key
 
 def decrypt(codeword):
     addtodecodedCiphers(codeword)
