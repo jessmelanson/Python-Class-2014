@@ -13,10 +13,15 @@ def addtoCiphers(word):
         else:
             print "Invalid entry. Please do not use spaces or special characters."
 
+codewordList = []
+
 def encrypt(word):
     addtoCiphers(word)
     for letter in word:
-        return cipherCodes[letter]
+        codewordList.append(Ciphers[letter])
+    print ''.join(codewordList)
+
+codeWord = encrypt(raw_input("Enter a word to encrypt:/n"))
 
 decodedCiphers = dict()
 
