@@ -19,9 +19,11 @@ def encrypt(word):
     addtoCiphers(word)
     for letter in word:
         codewordList.append(Ciphers[letter])
-    print ''.join(codewordList)
+    return ''.join(codewordList)
 
-codeWord = encrypt(raw_input("Enter a word to encrypt:/n"))
+codeWord = encrypt(raw_input("Enter a word to encrypt:\n"))
+
+print "Encrypted word: " + codeWord
 
 decodedCiphers = dict()
 
