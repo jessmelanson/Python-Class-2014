@@ -23,8 +23,6 @@ def encrypt(word):
 
 codeWord = encrypt(raw_input("Enter a word to encrypt:\n"))
 
-os.system('cls')
-
 print "Encrypted word: " + codeWord
 
 decodedCiphers = dict()
