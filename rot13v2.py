@@ -27,10 +27,24 @@ print "Encrypted word: " + codeWord
 
 decodedCiphers = dict()
 
-for key in Ciphers:
-    decodedCiphers[Ciphers[key]] = key
+def addtodecodedCiphers(word):
+    for key in Ciphers:
+        decodedCiphers[Ciphers[key]] = key
+
+decodedList = []
 
 def decrypt(codeword):
-    addtodecodedCiphers(codeword)
-    for letter in codeword:
-        return decodedCiphers[letter]
+    addtodecodedCiphers(codeWord)
+    for letter in word:
+        decodedList.append(decodedCiphers[letter])
+    return ''.join(decodedCiphers)
+
+while True:
+    response = raw_input("Decrypt? y/n \n")
+    if response == 'y':
+        print decrypt(codeWord)
+        break
+    elif response == 'n':
+        raw_input("Are you sure? y/n \n")
+    else:
+        raw_input("Please only respond 'y' or 'n' - ok?\n")
