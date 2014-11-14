@@ -1,3 +1,5 @@
+import os
+
 Ciphers = dict()
 
 def addtoCiphers(word):
@@ -23,6 +25,8 @@ def encrypt(word):
 
 codeWord = encrypt(raw_input("Enter a word to encrypt:\n"))
 
+os.system('cls')
+
 print "Encrypted word: " + codeWord
 
 decodedCiphers = dict()
@@ -40,6 +44,7 @@ def decrypt(word):
     return ''.join(decodedCiphers)
 
 while True:
+    os.system('cls') #cls is clear function for Windows Command line
     response = raw_input("Decrypt? y/n \n")
     if response == 'y':
         print decrypt(codeWord)
