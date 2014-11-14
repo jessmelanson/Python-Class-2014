@@ -33,7 +33,7 @@ def addtodecodedCiphers(word):
 
 decodedList = []
 
-def decrypt(codeword):
+def decrypt(word):
     addtodecodedCiphers(codeWord)
     for letter in word:
         decodedList.append(decodedCiphers[letter])
