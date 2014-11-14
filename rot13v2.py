@@ -37,12 +37,12 @@ decodedList = []
 
 def decrypt(word):
     for letter in word:
-        print decodedCiphers[letter]
+        return decodedCiphers[letter]
 
 while True:
     response = raw_input("Decrypt? y/n \n")
     if response == 'y':
-        print decrypt(codeWord)
+        print "Decrypted word: " + decrypt(codeWord)
         break
     elif response == 'n':
         raw_input("Are you sure? y/n \n")
