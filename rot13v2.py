@@ -37,8 +37,7 @@ decodedList = []
 
 def decrypt(word):
     for letter in word:
-        decodedList.append(decodedCiphers[letter])
-    return ''.join(decodedCiphers)
+        print decodedCiphers[letter]
 
 while True:
     response = raw_input("Decrypt? y/n \n")
