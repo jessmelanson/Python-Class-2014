@@ -33,10 +33,11 @@ def addtodecodedCiphers(word):
     for key in Ciphers:
         decodedCiphers[Ciphers[key]] = key
 
+addtodecodedCiphers(codeWord)
+
 decodedList = []
 
 def decrypt(word):
-    addtodecodedCiphers(codeWord)
     for letter in word:
         decodedList.append(decodedCiphers[letter])
     return ''.join(decodedCiphers)
