@@ -15,14 +15,14 @@ def addtoCiphers(word):
         else:
             print "Invalid entry. Please write out numbers and avoid using special characters."
 
-def encrypt(word):
+def encryptDecrypt(word):
     addtoCiphers(word)
     codewordList = []
     for letter in word:
         codewordList.append(Ciphers[letter])
     return ''.join(codewordList)
 
-codeWord = encrypt(raw_input("Enter a word to encrypt:\n"))
+codeWord = encryptDecrypt(raw_input("Enter a word or phrase to encrypt:\n"))
 
 print "Encrypted word: " + codeWord
 
