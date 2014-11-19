@@ -10,8 +10,10 @@ def addtoCiphers(word):
             Ciphers[letter] = chr(ord(letter) + 13)
         elif ord(letter) > 78 and ord(letter) < 91:
             Ciphers[letter] = chr(ord(letter) - 13)
+        elif letter in [" ", ".",",","!","?",":"]:
+        	Ciphers[letter] = letter
         else:
-            print "Invalid entry. Please do not use spaces or special characters."
+            print "Invalid entry. Please write out numbers and avoid using special characters."
 
 def encrypt(word):
     addtoCiphers(word)
