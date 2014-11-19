@@ -13,10 +13,9 @@ def addtoCiphers(word):
         else:
             print "Invalid entry. Please do not use spaces or special characters."
 
-codewordList = []
-
 def encrypt(word):
     addtoCiphers(word)
+    codewordList = []
     for letter in word:
         codewordList.append(Ciphers[letter])
     return ''.join(codewordList)
@@ -25,25 +24,10 @@ codeWord = encrypt(raw_input("Enter a word to encrypt:\n"))
 
 print "Encrypted word: " + codeWord
 
-decodedCiphers = dict()
-
-def addtodecodedCiphers(word):
-    for key in Ciphers:
-        decodedCiphers[Ciphers[key]] = key
-
-addtodecodedCiphers(codeWord)
-
-decodedList = []
-
-def decrypt(word):
-    for letter in word:
-        decodedList.append(decodedCiphers[letter])
-    return ''.join(decodedList)
-
 while True:
     response = raw_input("Decrypt? y/n \n")
     if response == 'y':
-        print "Decrypted word: " + decrypt(codeWord)
+        print "Decrypted word: " + encrypt(codeWord)
         break
     elif response == 'n':
         raw_input("Are you sure? y/n \n")
