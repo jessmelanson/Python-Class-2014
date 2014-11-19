@@ -34,6 +34,58 @@ def store(word,definition):
     #close the file
     f.close()
 
+#declares the function find()
+def find():
+    #query is the user's answer to the question "enter a word"
+    query = raw_input("Enter a word to look up:\n")
+    #declares f as a variable that opens a database in read mode
+    f = open('default.db', 'r') # r means read the file rather than edit it
+    #create a list of all the lines in the file
+    lines = f.readlines()
+    #for each item in the lines list
+    for line in lines:
+        #if the query substring is within a specific line in the lines list
+        if query in line:
+            #takes each line and splits it into a list at the commas
+            #defines "word" as the first item in the list
+            word = line.split(',')[0]
+            #defines "word" as the second item in the list
+            definition = line.split(',')[1]
+            #prints a new line, then the word
+            print "\nWord: ",word 
+            #prints a new line, then the definition
+            print "\nDefinition: ",definition
+        #otherwise:
+        else:
+            #tell the reader it's not in the dictionary
+            print "Not in dictionary"
+            #end the for loop
+            break
+	#interrupts the while loop so user can read the output
+    response = raw_input("Press enter to go back to the menu.")
+    #closes the file
+    f.close()
+    
+#declares the function delete()
+def delete():
+    #query is the user's answer to the question "enter a word"
+    query = raw_input("Enter a word to delete:\n")
+    #declares f as a variable that opens a database in read mode
+    f = open('default.db', 'rw') #rw means read/write in the file (vs a that only lets you add)
+    #starts a loop that goes infinitely
+    while True:
+        #local variable line = the next referenced line of the document
+        line = f.readline()
+        #if the word to delete is within the specific line:
+        if query in line:
+            print line
+            break
+        #otherwise
+        else:
+            #end the loop
+            break
+    #stops loop from continuing repeatedly
+    raw_input("Word removed.")
 #defines a list of menu navigation
 menuItems = ['Add','Find','Show All','Update','Delete','Quit']
 
@@ -59,5 +111,15 @@ while True:
         
     #if the user types 1, A, a, Add, add
     if response in ['1','A','a','Add','add']:
-        #
+        #add a word
         insert()
+        
+    #if the user types '2','F','f','Find','find'
+    if response in ['2','F','f','Find','find']:
+        #look up a word in the existing database
+        find()
+
+    #if the user types '5','D','d','Delete','delete', 'del'
+    if response in ['5','D','d','Delete','delete', 'del']:
+        #delete a word in the existing database
+        delete()
