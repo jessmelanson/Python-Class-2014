@@ -136,11 +136,6 @@ while True:
     if response in ['3','Show All','Show','show all','s']:
     	#display all words
     	showAll()
-    
-    #if the user types 4, Update, update, or u
-    if response in ['4','Update','update','u']:
-    	#edit the definition of an entry
-    	store()
 
     #if the user types '5','D','d','Delete','delete', 'del'
     if response in ['5','D','d','Delete','delete', 'del']:
