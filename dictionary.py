@@ -121,11 +121,6 @@ while True:
     #defines variable "response" as the user's answer to the string in parentheses
     #raw_input() is like prompt() in javascript
     response = raw_input("Please Choose a Menu Item\n")
-
-    #if the user types 6, Q, q, or Quit
-    if response in ['6','Q','q','Quit','quit']:
-        #the while loop ends
-        break
         
     #if the user types 1, A, a, Add, add
     if response in ['1','A','a','Add','add']:
@@ -136,10 +131,23 @@ while True:
     if response in ['2','F','f','Find','find']:
         #look up a word in the existing database
         find()
+    
+    #if the user types 3, Show All, Show, show all, or s
+    if response in ['3','Show All','Show','show all','s']:
+    	#display all words
+    	showAll()
+    
+    #if the user types 4, Update, update, or u
+    if response in ['4','Update','update','u']:
+    	#edit the definition of an entry
+    	store()
 
     #if the user types '5','D','d','Delete','delete', 'del'
     if response in ['5','D','d','Delete','delete', 'del']:
         #delete a word in the existing database
         delete()
 
-    #if the user types 
+    #if the user types 6, Q, q, or Quit
+    if response in ['6','Q','q','Quit','quit']:
+        #the while loop ends
+        break
