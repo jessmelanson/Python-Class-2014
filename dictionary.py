@@ -69,23 +69,41 @@ def find():
 #declares the function delete()
 def delete():
     #query is the user's answer to the question "enter a word"
-    query = raw_input("Enter a word to delete:\n")
+    wordToDelete = raw_input("Enter a word to delete:\n")
     #declares f as a variable that opens a database in read mode
-    f = open('default.db', 'rw') #rw means read/write in the file (vs a that only lets you add)
-    #starts a loop that goes infinitely
-    while True:
-        #local variable line = the next referenced line of the document
-        line = f.readline()
-        #if the word to delete is within the specific line:
-        if query in line:
-            print line
-            break
-        #otherwise
-        else:
-            #end the loop
-            break
-    #stops loop from continuing repeatedly
+    f = open('default.db', 'r') #r means just to read the file
+    #creates a list that contains all the lines in the database file
+    lines = f.readlines()
+    #for each index number and list item in lines
+    for indexnum,value in enumerate(lines):
+    	#if the word the user wants to delete is in the list value
+    	if wordToDelete in value:
+    	    #delete the specific line, specified by its index number
+    	    del lines[indexnum]
+    #close the file
+    f.close()
+    #open the file again, this time to edit it
+    f.open('default.db','w') #w here means to write to the file, as opposed to read only or adding on
+    #Overwrite everything in the file with the new contents of the lines list
+    f.writelines(lines)
+    #good practice to use this to get rid of extra junk code
+    f.flush()
+    #close the file
+    f.close()
+    #prevents the app from jumping immediately back to the main menu
     raw_input("Word removed.")
+
+#declares the function showAll()
+def showAll():
+    #opens the database file for reading
+    f = open('default.db','r')
+    #read all the lines in the file
+    f.readlines()
+    #close the file
+    f.close()
+    #stops the app from jumping back to the main menu
+    raw_input("End of dictionary. Press any key to go back to the main menu.")
+    
 #defines a list of menu navigation
 menuItems = ['Add','Find','Show All','Update','Delete','Quit']
 
@@ -123,3 +141,5 @@ while True:
     if response in ['5','D','d','Delete','delete', 'del']:
         #delete a word in the existing database
         delete()
+
+    #if the user types 
